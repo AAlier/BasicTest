@@ -1,5 +1,6 @@
 package com.example.test.ui.main;
 
+import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,7 +32,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void isAnswered(boolean value) {
-        textView.setSelected(value);
+    public void isAnswered(boolean isAnswered, boolean isCorrect) {
+        if (isAnswered) {
+            int color = Color.parseColor(!isCorrect ? "#F44336" : "#8AFF17");
+            textView.setTextColor(color);
+        } else {
+            textView.setTextColor(Color.parseColor("#BA000000"));
+        }
     }
 }
