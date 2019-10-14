@@ -36,9 +36,10 @@ public class AnswerAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(list.get(position), this.questionPosition);
         HashMap<Integer, Integer> map = listener.getAnswers();
-        boolean isAnswered = map.containsKey(questionPosition) && map.get(questionPosition) == list.get(position).getId();
+        boolean isAnswerSelected = map.containsKey(questionPosition);
+        boolean isAnswered = map.get(questionPosition) != null && map.get(questionPosition) == list.get(position).getId();
         boolean isCorrect = list.get(position).isCorrect();
-        holder.isAnswered(isAnswered, isCorrect);
+        holder.isAnswered(isAnswerSelected, isAnswered, isCorrect);
     }
 
     @Override

@@ -32,10 +32,11 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void isAnswered(boolean isAnswered, boolean isCorrect) {
-        if (isAnswered) {
-            int color = Color.parseColor(!isCorrect ? "#F44336" : "#8AFF17");
-            textView.setTextColor(color);
+    public void isAnswered(boolean isAnswerSelected, boolean isAnswered, boolean isCorrect) {
+        if (isAnswerSelected && isCorrect) {
+            textView.setTextColor(Color.parseColor("#8AFF17"));
+        } else if (isAnswered) {
+            textView.setTextColor(Color.parseColor("#F44336"));
         } else {
             textView.setTextColor(Color.parseColor("#BA000000"));
         }
